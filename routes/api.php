@@ -20,3 +20,5 @@ use App\Http\Controllers\Api\UserController;
 });*/
 
 Route::resource('/users', UserController::class);
+
+Route::post('auth/login',  [App\Http\Controllers\Api\AuthController::class, 'login']);
