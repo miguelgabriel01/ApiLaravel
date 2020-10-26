@@ -20,6 +20,7 @@ use App\Http\Controllers\Api\UserController;
 });*/
 
 Route::group(['middleware' => ['apiJwt']], function(){
+    Route::post('auth/logout',  [App\Http\Controllers\Api\AuthController::class, 'logout']);
     Route::resource('/users', UserController::class);
 });
 
