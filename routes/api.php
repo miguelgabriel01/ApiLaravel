@@ -19,6 +19,8 @@ use App\Http\Controllers\Api\UserController;
     return $request->user();
 });*/
 
-Route::resource('/users', UserController::class);
+Route::group(['middleware' => ['apiJwt']], function(){
+    Route::resource('/users', UserController::class);
+});
 
 Route::post('auth/login',  [App\Http\Controllers\Api\AuthController::class, 'login']);
